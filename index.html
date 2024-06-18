@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster responsive website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <img src="disasterlogo.png" alt="">
+        <div class="navigation">
+            <ul>
+                <img id="menu-close" src="cross.png" alt="">
+                <li><a href="home.html">Home</a></li>
+                <li class="dropdown" onmouseover="showDropdown(this)" onmouseout="hideDropdown(this)"><a href="#">About &#9660;</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Introduction</a></li>
+                        <li class="sub-menu" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)"><a href="#">Division &#9658;</a>
+                            <ul class="submenu-content">
+                                <li><a href="#">Policy and Plans</a></li>
+                                <li><a href="#">Operations and Communication</a></li>
+                                <li><a href="#">Capacity Building</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </li>
+    
+                <li  class="dropdown" onmouseover="showDropdown(this)" onmouseout="hideDropdown(this)"><a href="#">Response &#9660;</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">NDRF</a></li>
+                        <li><a href="#">SDRF</a></li>
+                        <li><a href="#">Civil Defence</a></li>
+                        <li><a href="#">Fire Service</a></li>
+                        <li><a href="#">Home Guards</a></li>
+                    </ul>
+                
+                </li>
+                <li class="dropdown" onmouseover="showDropdown(this)" onmouseout="hideDropdown(this)"><a href="#">Mitigation &#9660;</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">MRDS</a></li>
+                        <li><a href="#">LRMS</a></li>
+                        <li><a href="#">FRMS</a></li>
+                        <li><a href="#">NERMP</a></li>
+                        <li><a href="#">School Safety Project</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Alerts</a></li>
+                <li><a href="donation.html">Donation</a></li>
+                <li><a href="#">Feedback</a></li>
+            </ul>
+            <img id="menu-btn" src="menu.png" alt="">
+        </div>
+    </nav>
+    <!------Home----->
+    <section id="home">
+        
+        <h2>Your Partner in Emergency Preparedness and Recovery</h2>
+        <p> we provide comprehensive disaster response services to ensure your
+        community or organization is equipped to handle any crisis.We work hand-in-hand with local authorities, organizations, and 
+        residents to build stronger, more resilient communities prepared for any emergency</p>
+        <div class="btn">
+            <a class ="blue" href="#">Learn More</a>
+            <a class="yellow" href="#">Alerts!!</a>
+        </div> 
+    </section>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p>Emergency Hotline: 123-456-7890</p>
+                <p>Email:info@disasterresponse.org</p>
+            </div>
+            <div class="footer-section">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Shelter</a></li>
+                    <li><a href="#">Emergency Kit</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-section">
+                <h3>Subscribe to our NewsLetter</h3>
+                <form class="newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button>Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-section">
+                <h3>Follow us</h3>
+                <div class="social-media">
+                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+                </div>
+
+            </div>
+        </div>
+        <p class="footer-bottom">&copy;2024 Disaster Response. All rights reserved</p>
+    </footer>
+    <script>
+        $('#menu-btn').click(function(){
+            $('nav .navigation ul').addClass('active')
+        });
+        $('#menu-close').click(function(){
+            $('nav .navigation ul').removeClass('active')
+        });
+        function showDropdown(element) {
+             element.getElementsByClassName("dropdown-content")[0].style.display = "block";
+}
+        function hideDropdown(element) {
+
+            element.getElementsByClassName("dropdown-content")[0].style.display = "none";
+    }
+
+        function showSubmenu(element) {
+             element.getElementsByClassName("submenu-content")[0].style.display = "block";
+    }
+
+       function hideSubmenu(element) {
+             element.getElementsByClassName("submenu-content")[0].style.display = "none";
+    } 
+    
+
+    
+    </script>
+        
+    
+</body>
+</html>
