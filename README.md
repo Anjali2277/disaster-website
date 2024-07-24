@@ -4,6 +4,11 @@ The Disaster Management Responsive Website is a comprehensive online platform de
 
 
 Key Features:
+Sign In option so that alerts can be send to registered people.
+
+![Screenshot (322)](https://github.com/user-attachments/assets/e6e70130-74f1-4bc8-aabe-046df96803dd)
+
+
 Real-Time Weather Updates: Stay informed with up-to-date weather forecasts and alerts to better prepare for and respond to natural disasters.
 
 ![Screenshot (323)](https://github.com/user-attachments/assets/13a0776a-9d9a-4e86-a7c5-347dd31a4cbd)
