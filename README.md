@@ -1,5 +1,6 @@
 # Disaster Management Responsive Website
 The Disaster Management Responsive Website is a comprehensive online platform designed to aid in disaster preparedness, response, and recovery efforts. Built with responsiveness in mind, it offers critical tools and resources accessible on any device, ensuring timely access to vital information during emergencies.
+Host Website:- https://anjali2277.github.io/disaster-project/#
 ![Screenshot (325)](https://github.com/user-attachments/assets/6853418e-7f1e-4f1b-8f96-191c296287b9)
 
 
