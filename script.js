@@ -34,21 +34,50 @@ document.addEventListener('DOMContentLoaded', function() {
         divisionSubmenuContent.style.display = "none";
       }
     });
-    function toggleDonationForm() {
-        var donationForm = document.getElementById('donationForm');
-        if (donationForm.style.display === 'none') {
-          donationForm.style.display = 'block';
-        } else {
-          donationForm.style.display = 'none';
-        }
-      }
     
-      // Attach toggleDonationForm function to Donation link
-      var donationLink = document.querySelector('.donation-link');
-      donationLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default link behavior
-        toggleDonationForm();
-      });
     
   });
+  document.addEventListener('DOMContentLoaded', () => {
+    const alerts = [
+      "Alert 1: This is an important message!",
+      "Alert 2: Please check your email for updates.",
+      "Alert 3: New features have been added!"
+    ];
+  
+    const alertContainer = document.querySelector('.alert-content');
+  
+    alerts.forEach(alert => {
+      const alertElement = document.createElement('span');
+      alertElement.className = 'alert';
+      alertElement.textContent = alert;
+      alertContainer.appendChild(alertElement);
+    });
+  });
+  const testBackendConnection = async () => {
+    try {
+        const response = await fetch('http://localhost:5000/');
+        const data = await response.text();
+        console.log(data); // Logs: "Backend is running!"
+    } catch (error) {
+        console.error('Error connecting to backend:', error);
+    }
+};
+
+// Call the function (for testing)
+testBackendConnection();
+const submitFeedback = async () => {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const feedback = document.getElementById('feedback').value;
+
+  const response = await fetch('http://localhost:5000/feedback', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, feedback }),
+  });
+
+  const result = await response.json();
+  alert(result.message);
+};
+
  
