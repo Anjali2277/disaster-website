@@ -69,5 +69,41 @@
             </div>
         </form>
     </div>
+    <script>
+        document.getElementById('donationForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const donationData = Object.fromEntries(formData.entries());
+
+            const responseMessage = document.getElementById('responseMessage');
+            responseMessage.style.display = 'none';
+
+            try {
+                const response = await fetch('http://localhost:5000/submitDonation', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(donationData),
+                });
+
+                if (response.ok) {
+                    responseMessage.textContent = 'Thank you for your donation!';
+                    responseMessage.className = 'message success';
+                    responseMessage.style.display = 'block';
+                    event.target.reset();
+                } else {
+                    responseMessage.textContent = 'Failed to submit donation. Please try again.';
+                    responseMessage.className = 'message error';
+                    responseMessage.style.display = 'block';
+                }
+            } catch (error) {
+                responseMessage.textContent = 'An error occurred. Please try again later.';
+                responseMessage.className = 'message error';
+                responseMessage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

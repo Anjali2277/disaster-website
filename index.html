@@ -49,22 +49,43 @@
                 </li>
                 <li><a href="#">Alerts</a></li>
                 <li><a href="donation.html">Donation</a></li>
-                <li><a href="#">Feedback</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li class="sign-in"><a href="sign.html">Sign In</a></li> 
             </ul>
             <img id="menu-btn" src="menu.png" alt="">
         </div>
+    
     </nav>
+    
     <!------Home----->
     <section id="home">
-        
+        <div class="alert-container">
+            <div class="alert-content">
+                <span class="alert"> Contact the National Disaster Management Authority (NDMA) at 1078 for disaster-related assistance.</span>
+                <span class="alert"> National Disaster Response Force (NDRF) helpline is available at 011-24363260 or 9711077372.</span>
+                <span class="alert"> For weather updates and alerts, visit the Indian Meteorological Department website at www.imd.gov.in.</span>
+                <span class="alert"> In case of a fire emergency, dial 101.</span>
+                <span class="alert"> For police assistance, dial 100.</span>
+                <span class="alert"> For ambulance services, dial 102.</span>
+                <span class="alert"> Contact your State Disaster Management Authority (SDMA) for local disaster response.</span>
+                <span class="alert"> For general disaster-related queries, call the helpline at 1070.</span>
+            </div>
+        </div>
+        <!-- Button to fetch news -->
+       <div id="disaster-news-button-container">
+              <button id="fetch-news-btn">Recent Disaster News</button>
+       </div>
+       <div id="news-container"></div>
+
         <h2>Your Partner in Emergency Preparedness and Recovery</h2>
         <p> we provide comprehensive disaster response services to ensure your
         community or organization is equipped to handle any crisis.We work hand-in-hand with local authorities, organizations, and 
         residents to build stronger, more resilient communities prepared for any emergency</p>
         <div class="btn">
-            <a class ="blue" href="#">Learn More</a>
+            <a id="current-weather-btn" class ="blue" href="weather.html">Current weather</a>
             <a class="yellow" href="#">Alerts!!</a>
         </div> 
+        
     </section>
     
     <footer>
@@ -127,6 +148,47 @@
     
 
     
+    </script>
+     <script src="weather.js"></script>
+     <script>
+        // Fetch disaster news from the backend
+        async function fetchDisasterNews() {
+            try {
+                const response = await fetch('http://localhost:5000/disasterNews');
+                const articles = await response.json();
+                
+                const newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = ''; // Clear previous news
+
+                if (articles.length === 0) {
+                    newsContainer.innerHTML = '<p>No recent disaster news available at the moment.</p>';
+                } else {
+                    articles.forEach(article => {
+                        // Create a new element for each article
+                        const articleElement = document.createElement('div');
+                        articleElement.classList.add('news-article');
+                        
+                        // Add content to the article element
+                        articleElement.innerHTML = `
+                            <h4><a href="${article.url}" target="_blank">${article.title}</a></h4>
+                            <p><strong>Source:</strong> ${article.source.name}</p>
+                            <p>${article.description}</p>
+                            <p><strong>Published on:</strong> ${new Date(article.publishedAt).toLocaleDateString()}</p>
+                        `;
+                        
+                        // Append the article to the news container
+                        newsContainer.appendChild(articleElement);
+                    });
+                }
+            } catch (err) {
+                console.error('Error fetching news:', err);
+                const newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = '<p>Error fetching disaster news. Please try again later.</p>';
+            }
+        }
+
+        // Attach event listener to the button
+        document.getElementById('fetch-news-btn').addEventListener('click', fetchDisasterNews);
     </script>
         
     
