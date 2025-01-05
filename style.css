@@ -58,10 +58,14 @@ nav .navigation ul{
     display:flex;
     justify-content: flex-end;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 nav .navigation ul li{
     list-style: none;
     margin-left: 30px;
+    margin: 0 15px;
 }
 nav .navigation ul li a{
     text-decoration: none;
@@ -74,6 +78,20 @@ nav .navigation ul li a:hover{
     color:#fdc93b;
 
 }
+.navigation ul li.sign-in {
+    margin-left: 30px;
+    margin-bottom: 30px; /* This pushes the sign-in option to the right */
+}
+.navigation ul li.sign-in a {
+    color: #000; /* Adjust color as needed */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navigation ul li.sign-in a:hover {
+    text-decoration: underline;
+}
+
 .dropdown{
     position:relative;
 }
@@ -100,6 +118,41 @@ nav .navigation ul li a:hover{
 .submenu:hover .submenu-content {
     display: block;
 }
+/*Alerts*/
+.alert-container {
+    width: 100%;
+    background-color: #f44336; /* Red background for alerts */
+    color: white;
+    overflow: hidden;
+    display: inline;
+    align-items: flex-start;
+    white-space: nowrap;
+    padding: 10px 0;
+    margin-block-end:200px;
+  }
+  
+  .alert-content {
+    display: inline-block;
+    padding-left: 100%; /* Start position outside the visible area */
+    animation: scroll 25s linear infinite; /* Animation for scrolling */
+  }
+  .alert-content span{
+    color:#fff;
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .alert {
+    display: inline-block;
+    padding: 0 20px;
+  }
 /*Home*/ 
 #home{
    
@@ -280,6 +333,290 @@ input, select {
 .button-container button:hover{
     background-image:linear-gradient(to right,#aa076b,#61045f) ;
 }
+/*feedback*/
+.feedback-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-group textarea,
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    height: 150px;
+  }
+
+  .form-group input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .form-group input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+/*sign-in*/
+.signin-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.signin-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="email"], 
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.form-group.remember-me {
+    display: flex;
+    
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 5px;
+    
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.signup-link,
+.forgot-password {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.signup-link a,
+.forgot-password a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+.signup-link a:hover,
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-login img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+/*weather*/
+.card{
+    width:90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color:#fff;
+    margin:100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.search{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input{
+    border:0;
+    outline:0;
+    background: #ebfffc;
+    color:#555;
+    padding:10px 25px;
+    height:60px;
+    border-radius: 30px;
+    flex:1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+.search button{
+    border:0;
+    outline:0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.search button img{
+    width:30px;
+}
+.weather-icon{
+    width:170px;
+    margin-top: 30px;
+}
+.weather h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+.weather h2{
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.col img{
+    width:40px;
+    margin-right: 10px;
+}
+.humidity, .wind{
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+#disaster-news-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#fetch-news-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#fetch-news-btn:hover {
+    background-color: #0056b3;
+}
+
+#disaster-news-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#disaster-news-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-article {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.news-article h4 {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.news-article p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.news-article a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.news-article a:hover {
+    text-decoration: underline;
+}
+
 
   /*footer*/
 footer{
